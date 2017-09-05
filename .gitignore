@@ -1,0 +1,10 @@
+
+*.bin
+*.bin
+Library/shadercompiler-UnityShaderCompiler.exe0.log
+Library/SpriteAtlasDatabase.asset
+Library/UnityAssemblies/nunit.framework.xml
+Library/UnityAssemblies/UnityEditor.dll
+Library/UnityAssemblies/UnityEditor.xml
+Library/UnityAssemblies/UnityEngine.Analytics.xml
+Library/UnityAssemblies/UnityEngine.dll
