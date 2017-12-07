@@ -29,7 +29,11 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void MovePlayer(Location location) {
-        GetActivePlayer().GoTo(location);
+        Player activePlayer = GetActivePlayer();
+        activePlayer.SetLocation(location);
+        Transform entranceTransform = location.GetEntranceTransform();
+
+        activePlayer.MoveTo(entranceTransform.position.x, entranceTransform.position.z, 1f);
     }
 
     public void AddPlayer(Player player) {

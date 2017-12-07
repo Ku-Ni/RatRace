@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour {
     private Location playerLocation;
     private Transform playerTransform;
+    private float yPos;
 
 	// Use this for initialization
 	void Start () {
         playerTransform = GetComponent<Transform>();
+        yPos = playerTransform.position.y;
     }
 	
 	// Update is called once per frame
@@ -17,14 +20,16 @@ public class Player : MonoBehaviour {
 	
 	}
 
+    internal void SetLocation(Location location) {
+        playerLocation = location;
+    }
+
     /// <summary>
     /// 
     /// </summary>
     /// <param name="location"></param>
-    public void GoTo(Location location) {
-        playerLocation = location;
-        Transform entranceTransform = location.GetEntranceTransform();
-        playerTransform.position = new Vector3(entranceTransform.position.x, playerTransform.position.y, entranceTransform.position.z);
+    public void MoveTo(float xPos, float zPos, float duration) {
+        transform.DOMove(new Vector3(xPos, yPos, zPos), duration);
     }
 
     /// <summary>
