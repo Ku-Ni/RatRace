@@ -14,6 +14,8 @@ public class PlayerMoveController : MonoBehaviour {
 
     public void MoveActivePlayer(Location destinationLocation) {
         int currentIndex = locations.IndexOf(playerManager.GetActivePlayer().GetLocation());
+        Debug.Log("Current location: " + playerManager.GetActivePlayer().GetLocation());
+        Debug.Log("Current index:    " + currentIndex);
         int destinationIndex = locations.IndexOf(destinationLocation);
         int direction = CalculateDirection(currentIndex, destinationIndex);
 

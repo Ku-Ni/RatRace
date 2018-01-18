@@ -13,13 +13,18 @@ public class Player : MonoBehaviour {
 	void Start () {
         playerTransform = GetComponent<Transform>();
         yPos = playerTransform.position.y;
+        // TODO: Store home location
+        foreach (Location location in GameObject.FindObjectsOfType<Location>()) {
+            if (location.GetName() == "LowCostHousing") {
+                playerLocation = location;
+            }
+        }
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="location"></param>
     internal void SetLocation(Location location) {
         playerLocation = location;
     }
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour {
     /// <param name="location"></param>
     public void MoveTo(float xPos, float zPos, float duration) {
         transform.DOMove(new Vector3(xPos, yPos, zPos), duration);
+        Debug.Log("Player position: " + transform.position + "\n" + playerLocation + " position: " + playerLocation.GetEntranceTransform().position);
     }
 
     /// <summary>
